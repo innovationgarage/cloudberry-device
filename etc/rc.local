@@ -1,0 +1,24 @@
+#! /bin/sh
+
+exec > /etc/.cloudberry-sysinit.$(date -Iseconds).log 2>&1
+set -x
+
+VERSION=$(cat /cloudberry-sysinit/VERSION)
+
+if [ ! -e "/etc/.cloudberry-sysinit.version" ]; then
+  CURRENT_VERSION=0
+else
+  CURRENT_VERSION="$(cat "/etc/.cloudberry-sysinit.version")"
+fi
+
+if [ $VERSION -gt $CURRENT_VERSION ]; then
+  /cloudberry-sysinit/init.sh
+
+  echo $VERSION > "/etc/.cloudberry-sysinit.version"
+
+  # Somehow the above leaves the system in a wierd state, so reboot to get back to normal...
+  reboot
+
+fi
+
+exit 0

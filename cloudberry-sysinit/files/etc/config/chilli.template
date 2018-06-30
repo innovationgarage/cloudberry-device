@@ -1,0 +1,42 @@
+# vim: filetype=uci
+
+config chilli
+    option radiussecret "testing123"
+    option uamsecret "testing123"
+    
+    option radiusnasid "%(OPENWISP_UUID)s"
+
+    option radiusserver1 "%(SERVER)s"
+    option radiusserver2 "%(SERVER)s"
+
+    option wwwdir '/etc/chilli/www'
+    option wwwbin '/etc/chilli/wwwsh'
+  
+    option uamuiport '4990'
+    option uamport '3990'
+    option dhcpif "br-lan"
+
+    option dns1 '8.8.8.8'
+    option dns2 '8.8.4.4'
+
+    option tundev 'tun0'
+    option net '192.168.180.0/22'
+    option uamlisten '192.168.182.1'
+    option lease '86400'
+    option leaseplus '600'
+
+    option uamserver 'http://192.168.182.1:4990/www/login.chi'
+    option uamhomepage 'http://192.168.182.1:3990/www/coova.html'
+
+    option uamallowed "147.75.32.61,\
+    		       192.168.182.1,\
+		       10.0.0.1/24,\
+                       www.vg.no"
+
+    option network ''
+    option domain "lan"
+    
+    option ipup '/etc/chilli/up.sh'
+    option ipdown '/etc/chilli/down.sh'
+    option radiuslocationid 'oslo-office'
+    option nouamsuccess '1'
