@@ -15,9 +15,7 @@ opkg update
 opkg install ca-certificates
 opkg install ca-bundle
 opkg install libustream-openssl
-opkg install haserl
 opkg install rsync
-opkg install coova-chilli
 opkg install openwisp-config-openssl
 
 if ! grep "INIT-OPENWISP DONE" /usr/sbin/openwisp_config > /dev/null; then
@@ -27,6 +25,4 @@ if ! grep "INIT-OPENWISP DONE" /usr/sbin/openwisp_config > /dev/null; then
   echo "# INIT-OPENWISP DONE" >> /usr/sbin/openwisp_config
 fi
 
-/etc/init.d/dnsmasq disable
-/etc/init.d/dnsmasq stop
 rsync -a --progress /cloudberry-sysinit/files/ /
