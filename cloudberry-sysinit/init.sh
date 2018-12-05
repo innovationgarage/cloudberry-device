@@ -16,6 +16,7 @@ opkg install ca-certificates
 opkg install ca-bundle
 opkg install libustream-openssl
 opkg install rsync
+opkg install openvpn-openssl
 opkg install openwisp-config-openssl
 
 if ! grep "INIT-OPENWISP DONE" /usr/sbin/openwisp_config > /dev/null; then
